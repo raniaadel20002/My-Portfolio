@@ -2,7 +2,7 @@
     "name": "Rania Adel Portfolio",
     "short_name": "Rania",
     "start_url": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "theme_color": "#3a6cf4",
     "icons": [
         {
