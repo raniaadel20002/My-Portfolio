@@ -16,3 +16,23 @@ if ("serviceWorker" in navigator) {
     });
 
 }
+
+// Mobile navigation toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.querySelector(".nav-toggle");
+    const header = document.querySelector("header");
+    const navLinks = document.querySelectorAll(".navigation a");
+
+    if (navToggle) {
+        navToggle.addEventListener("click", () => {
+            header.classList.toggle("nav-open");
+        });
+    }
+
+    // Close menu when a navigation link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            header.classList.remove("nav-open");
+        });
+    });
+});

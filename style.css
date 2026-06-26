@@ -82,15 +82,22 @@ header {
 }
 
 @media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+
     .nav-toggle {
         display: block;
     }
 
     .navigation {
         display: none;
+        width: 100%;
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+        text-align: center;
     }
 
     .navigation a {
@@ -98,7 +105,7 @@ header {
         font-size: 1.2rem;
     }
 
-    .nav-open .navigation {
+    header.nav-open .navigation {
         display: flex;
     }
 
@@ -113,34 +120,39 @@ header {
         background-position: right center;
         padding-left: clamp(1rem, 5vw, 2.5rem);
         padding-right: clamp(1rem, 5vw, 2.5rem);
+        /* Move content towards top-left */
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        padding-top: 7rem; /* Leave space for fixed header */
         /* Semi-transparent dark overlay so text is legible over the image */
         background-color: rgba(0, 0, 30, 0.55);
         background-blend-mode: multiply;
     }
 
     .main h2 {
-        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        font-size: clamp(0.85rem, 3vw, 1rem);
     }
 
     .main h2 span {
-        font-size: clamp(1.6rem, 7.5vw, 2.2rem);
-        margin-top: 0.3rem;
+        font-size: clamp(1.4rem, 6.5vw, 2rem);
+        margin-top: 0.2rem;
     }
 
     .main h3 {
-        font-size: clamp(1rem, 4.5vw, 1.4rem);
-        margin-top: 0.3rem;
-        margin-bottom: 1.2rem;
+        font-size: clamp(0.9rem, 4vw, 1.3rem);
+        margin-top: 0.2rem;
+        margin-bottom: 1rem;
     }
 
     .main-btn {
-        font-size: clamp(0.85rem, 3.5vw, 1rem);
-        padding: 0.75em 1.6em;
-        margin-bottom: 1.75rem;
+        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+        padding: 0.7em 1.5em;
+        margin-bottom: 1.2rem;
     }
 
     .social-icons a {
-        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+        font-size: clamp(1.1rem, 4.5vw, 1.3rem);
     }
 }
 
@@ -427,30 +439,31 @@ section {
          * keeping the dark background visible behind the text (left side).
          */
         background-position: 78% center;
-        /* Centre content so text doesn't hug the edge */
-        align-items: center;
-        text-align: center;
+        /* Keep content top-left */
+        align-items: flex-start;
+        text-align: left;
         padding-left: 1rem;
         padding-right: 1rem;
+        padding-top: 6rem;
     }
 
     .main h2 {
-        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        font-size: clamp(0.8rem, 3.5vw, 0.9rem);
     }
 
     .main h2 span {
-        font-size: clamp(1.4rem, 8vw, 2rem);
+        font-size: clamp(1.2rem, 7vw, 1.7rem);
     }
 
     .main h3 {
-        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
-        margin-bottom: 1rem;
+        font-size: clamp(0.85rem, 4vw, 1.1rem);
+        margin-bottom: 0.8rem;
     }
 
     .main-btn {
-        font-size: 0.9rem;
-        padding: 0.7em 1.5em;
-        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        padding: 0.6em 1.4em;
+        margin-bottom: 1rem;
     }
 }
 
