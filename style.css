@@ -104,39 +104,43 @@ header {
 
     /* Hero Section Mobile Responsiveness (≤768px) */
     .main {
-        min-height: 80vh;
-        /* Scaled down height proportionally */
+        min-height: 100svh;
+        /* Full screen height on mobile */
         background-attachment: scroll;
-        /* Fixes mobile background zoom/cropping */
+        /* background-attachment:fixed is broken on iOS/Android — scroll fixes it */
         background-size: cover;
-        background-position: center;
+        /* Anchor to the right so the subject (right side of image) stays visible */
+        background-position: right center;
         padding-left: clamp(1rem, 5vw, 2.5rem);
         padding-right: clamp(1rem, 5vw, 2.5rem);
+        /* Semi-transparent dark overlay so text is legible over the image */
+        background-color: rgba(0, 0, 30, 0.55);
+        background-blend-mode: multiply;
     }
 
     .main h2 {
-        font-size: clamp(1rem, 3.5vw, 1.25rem);
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
     }
 
     .main h2 span {
-        font-size: clamp(1.8rem, 7.5vw, 2.5rem);
-        margin-top: 0.4rem;
+        font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+        margin-top: 0.3rem;
     }
 
     .main h3 {
-        font-size: clamp(1.1rem, 5vw, 1.6rem);
-        margin-top: 0.4rem;
-        margin-bottom: 1.5rem;
+        font-size: clamp(1rem, 4.5vw, 1.4rem);
+        margin-top: 0.3rem;
+        margin-bottom: 1.2rem;
     }
 
     .main-btn {
-        font-size: clamp(0.9rem, 3.5vw, 1.05rem);
-        padding: 0.8em 1.8em;
-        margin-bottom: 2rem;
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        padding: 0.75em 1.6em;
+        margin-bottom: 1.75rem;
     }
 
     .social-icons a {
-        font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+        font-size: clamp(1.1rem, 4.5vw, 1.4rem);
     }
 }
 
@@ -413,6 +417,62 @@ section {
 
     .title {
         font-size: 1.6em;
+    }
+
+    /* --- Hero: very small portrait screens --- */
+    .main {
+        /*
+         * On narrow phones (≤480px) the right-anchored landscape image can still
+         * clip the subject's face. Shifting to 78% brings her into view while
+         * keeping the dark background visible behind the text (left side).
+         */
+        background-position: 78% center;
+        /* Centre content so text doesn't hug the edge */
+        align-items: center;
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main h2 {
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+    }
+
+    .main h2 span {
+        font-size: clamp(1.4rem, 8vw, 2rem);
+    }
+
+    .main h3 {
+        font-size: clamp(0.9rem, 4.5vw, 1.2rem);
+        margin-bottom: 1rem;
+    }
+
+    .main-btn {
+        font-size: 0.9rem;
+        padding: 0.7em 1.5em;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    /* --- Hero: tiny phones (e.g. iPhone SE 1st-gen, Galaxy A03) --- */
+    .main {
+        /*
+         * At this width the image needs to be fully centred on the subject.
+         * 85% pushes just far enough right that her face stays unclipped
+         * while the dark navy left-side fills behind the text.
+         */
+        background-position: 85% center;
+        /* Slightly stronger overlay so text stays readable on the busy right-side crop */
+        background-color: rgba(0, 0, 30, 0.65);
+    }
+
+    .main h2 span {
+        font-size: clamp(1.25rem, 9vw, 1.6rem);
+    }
+
+    .main h3 {
+        font-size: clamp(0.85rem, 5vw, 1.1rem);
     }
 }
 
