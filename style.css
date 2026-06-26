@@ -120,11 +120,12 @@ header {
         background-position: right center;
         padding-left: clamp(1rem, 5vw, 2.5rem);
         padding-right: clamp(1rem, 5vw, 2.5rem);
-        /* Move content towards top-left */
+        /* Move content towards upper-middle left */
         justify-content: flex-start;
         align-items: flex-start;
         text-align: left;
-        padding-top: 7rem; /* Leave space for fixed header */
+        /* Using 25svh dynamically places it lower than top-left but keeps it above center */
+        padding-top: clamp(8rem, 25svh, 14rem);
         /* Semi-transparent dark overlay so text is legible over the image */
         background-color: rgba(0, 0, 30, 0.55);
         background-blend-mode: multiply;
@@ -153,6 +154,12 @@ header {
 
     .social-icons a {
         font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+    }
+
+    /* Standardize Project Cards with Services Cards on mobile */
+    .project-card {
+        margin: 0; /* Remove margin to prevent horizontal scroll and rely on flex gap */
+        max-width: 21.25rem; /* Match the services .card width for visual balance */
     }
 }
 
@@ -439,12 +446,12 @@ section {
          * keeping the dark background visible behind the text (left side).
          */
         background-position: 78% center;
-        /* Keep content top-left */
+        /* Keep content upper-middle left */
         align-items: flex-start;
         text-align: left;
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-top: 6rem;
+        padding-top: clamp(7.5rem, 25svh, 12rem);
     }
 
     .main h2 {
