@@ -156,11 +156,6 @@ header {
         font-size: clamp(1.1rem, 4.5vw, 1.3rem);
     }
 
-    /* Standardize Project Cards with Services Cards on mobile */
-    .project-card {
-        margin: 0; /* Remove margin to prevent horizontal scroll and rely on flex gap */
-        max-width: 21.25rem; /* Match the services .card width for visual balance */
-    }
 }
 
 
